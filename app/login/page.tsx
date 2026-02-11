@@ -1,14 +1,21 @@
 "use client";
 
 import { createClient } from "@/lib/supabase/client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [error, setError] = useState<string | null>(null);
+  const searchParams = useSearchParams();
   const supabase = createClient();
+
+  useEffect(() => {
+    const urlError = searchParams.get("error");
+    if (urlError) setError(urlError);
+  }, [searchParams]);
 
   const handleGoogleLogin = async () => {
     setLoading(true);
