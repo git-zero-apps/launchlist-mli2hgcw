@@ -1,276 +1,234 @@
-import Link from 'next/link'
+import Link from "next/link"
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#faf7f2] via-[#fff9f0] to-[#fff5eb]">
+    <div className="relative min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 font-sans text-slate-900">
       {/* Decorative background elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-brand-200/20 blur-3xl" />
-        <div className="absolute bottom-[-15%] left-[-10%] w-[700px] h-[700px] rounded-full bg-brand-300/15 blur-3xl" />
-        <div className="absolute top-[40%] left-[50%] w-[400px] h-[400px] rounded-full bg-brand-100/25 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -left-1/4 top-0 h-[600px] w-[600px] rounded-full bg-brand-300/20 blur-3xl" />
+        <div className="absolute -right-1/4 top-1/3 h-[500px] w-[500px] rounded-full bg-orange-300/20 blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 h-[400px] w-[400px] rounded-full bg-rose-300/15 blur-3xl" />
       </div>
 
-      {/* Subtle grain texture overlay */}
-      <div 
-        className="fixed inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
-        }}
-      />
-
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 backdrop-blur-xl bg-[#faf7f2]/80 border-b border-brand-200/20">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center shadow-lg shadow-brand-500/25 group-hover:shadow-brand-500/40 transition-shadow duration-300">
-              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+      <nav className="sticky top-0 z-50 border-b border-orange-200/50 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+          <div className="flex items-center gap-2">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 shadow-lg shadow-brand-500/30">
+              <svg className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
               </svg>
             </div>
-            <span className="font-display font-extrabold text-xl tracking-tight text-brand-900">LaunchList</span>
-          </Link>
-          
+            <span className="font-display text-xl font-bold tracking-tight">LaunchList</span>
+          </div>
           <div className="flex items-center gap-8">
-            <Link href="#features" className="text-sm font-sans font-normal text-brand-800/70 hover:text-brand-900 transition-colors duration-200">Features</Link>
-            <Link href="#pricing" className="text-sm font-sans font-normal text-brand-800/70 hover:text-brand-900 transition-colors duration-200">Pricing</Link>
-            <Link href="/login" className="px-5 py-2.5 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-sans font-medium text-sm shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 transition-all duration-300">Start Free Trial</Link>
+            <Link href="#features" className="hidden font-medium text-slate-700 transition-colors hover:text-slate-900 md:inline-block">
+              Features
+            </Link>
+            <Link href="#pricing" className="hidden font-medium text-slate-700 transition-colors hover:text-slate-900 md:inline-block">
+              Pricing
+            </Link>
+            <Link href="/login" className="rounded-full bg-gradient-to-r from-brand-500 to-brand-600 px-6 py-2.5 font-display font-semibold text-white shadow-lg shadow-brand-500/30 transition-all hover:shadow-xl hover:shadow-brand-500/40">
+              Start Free Trial
+            </Link>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-24 px-6 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Hero Text */}
-            <div className="animate-fade-up">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100/60 backdrop-blur-sm border border-brand-200/40 mb-8 [animation-delay:150ms] animate-fade-in">
-                <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse" />
-                <span className="text-sm font-sans font-medium text-brand-800 tracking-wide">TRUSTED BY 12,847 CREATORS</span>
+      <section className="relative px-6 pb-20 pt-16 lg:px-8 lg:pb-32 lg:pt-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="animate-fade-up space-y-8">
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/60 px-4 py-2 text-sm font-medium text-brand-700 shadow-sm backdrop-blur-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-400 opacity-75"></span>
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-500"></span>
+                </span>
+                Join 12,847 makers building their audience
               </div>
-              
-              <h1 className="font-display font-black text-7xl lg:text-8xl leading-none tracking-tighter text-brand-950 mb-6">
-                Turn signups into <span className="text-transparent bg-clip-text bg-gradient-to-br from-brand-500 to-brand-700">viral growth</span>
+              <h1 className="font-display text-6xl font-black leading-none tracking-tighter text-slate-900 lg:text-7xl">
+                Turn waitlist signups into{" "}
+                <span className="bg-gradient-to-r from-brand-600 to-rose-500 bg-clip-text text-transparent">
+                  viral growth
+                </span>
               </h1>
-              
-              <p className="text-xl font-sans font-normal leading-relaxed text-brand-800/80 mb-10 max-w-xl">
-                Launch beautiful waitlist pages in minutes. Your subscribers become your marketing team with built-in referral tracking that rewards people for spreading the word.
+              <p className="text-xl leading-relaxed text-slate-600 lg:text-2xl">
+                Beautiful waitlist pages with a built-in referral engine. Every signup becomes a growth channel. Launch in 60 seconds.
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 [animation-delay:300ms] animate-fade-up">
-                <Link href="/login" className="px-8 py-4 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-sans font-semibold text-base shadow-xl shadow-brand-500/30 hover:shadow-brand-500/50 hover:scale-105 transition-all duration-300 text-center">
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Link href="/login" className="group rounded-full bg-gradient-to-r from-brand-500 to-brand-600 px-8 py-4 font-display text-lg font-bold text-white shadow-xl shadow-brand-500/30 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-brand-500/40">
                   Create Your Waitlist
+                  <svg className="ml-2 inline h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
                 </Link>
-                <Link href="#features" className="px-8 py-4 rounded-full bg-white/80 backdrop-blur-sm hover:bg-white border border-brand-200/40 text-brand-900 font-sans font-medium text-base shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+                <Link href="#features" className="rounded-full border-2 border-slate-200 bg-white/80 px-8 py-4 font-display text-lg font-bold text-slate-700 backdrop-blur-sm transition-all hover:border-slate-300 hover:bg-white">
                   See How It Works
                 </Link>
               </div>
-              
-              <div className="flex items-center gap-6 mt-10 pt-10 border-t border-brand-200/30 [animation-delay:450ms] animate-fade-in">
-                <div className="flex -space-x-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-300 to-brand-400 border-2 border-[#faf7f2]" />
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-400 to-brand-500 border-2 border-[#faf7f2]" />
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-600 border-2 border-[#faf7f2]" />
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-600 to-brand-700 border-2 border-[#faf7f2]" />
-                </div>
-                <div>
-                  <div className="text-sm font-sans font-semibold text-brand-900">4.9/5 rating</div>
-                  <div className="text-xs font-sans font-normal text-brand-700/70">from 1,247 reviews</div>
-                </div>
-              </div>
             </div>
-            
-            {/* Hero Visual */}
-            <div className="relative [animation-delay:300ms] animate-fade-in">
-              {/* Floating mockup */}
-              <div className="relative">
-                {/* Background glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-400/30 to-brand-600/30 blur-3xl rounded-3xl scale-110" />
-                
-                {/* Main card */}
-                <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl shadow-brand-900/10 p-8 border border-brand-200/30">
-                  {/* Header */}
-                  <div className="flex items-start justify-between mb-8">
-                    <div>
-                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 mb-4 shadow-lg shadow-brand-500/30" />
-                      <h3 className="font-display font-extrabold text-2xl text-brand-950 mb-2">Join the Waitlist</h3>
-                      <p className="font-sans text-sm text-brand-700/70">Be first to try our new product</p>
-                    </div>
-                    <div className="px-3 py-1.5 rounded-full bg-brand-100 text-brand-800 font-sans font-semibold text-xs tracking-wide">
-                      #247
-                    </div>
-                  </div>
-                  
-                  {/* Form */}
-                  <div className="space-y-4 mb-6">
-                    <div className="h-12 rounded-xl bg-brand-50/50 border border-brand-200/40 flex items-center px-4">
-                      <span className="text-sm font-sans text-brand-400">Your name</span>
-                    </div>
-                    <div className="h-12 rounded-xl bg-brand-50/50 border border-brand-200/40 flex items-center px-4">
-                      <span className="text-sm font-sans text-brand-400">Email address</span>
-                    </div>
-                    <button className="w-full h-12 rounded-xl bg-gradient-to-r from-brand-500 to-brand-600 text-white font-sans font-semibold shadow-lg shadow-brand-500/30 hover:shadow-brand-500/50 transition-all duration-300">
-                      Join Waitlist
-                    </button>
-                  </div>
-                  
-                  {/* Referral section */}
-                  <div className="pt-6 border-t border-brand-200/30">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 rounded-lg bg-brand-100 flex items-center justify-center">
-                        <svg className="w-4 h-4 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+            <div className="relative animate-fade-in [animation-delay:300ms]">
+              <div className="relative rounded-3xl border border-orange-200/50 bg-white/80 p-8 shadow-2xl backdrop-blur-sm">
+                <div className="space-y-6">
+                  <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-600">
+                        <span className="font-display text-lg font-bold text-white">A</span>
                       </div>
-                      <span className="font-sans font-semibold text-brand-900 text-sm">Move up the list faster</span>
+                      <div>
+                        <div className="font-display text-sm font-bold text-slate-900">AI SaaS Launch</div>
+                        <div className="text-xs text-slate-500">2,847 signups</div>
+                      </div>
                     </div>
-                    <p className="font-sans text-xs text-brand-700/70 leading-relaxed">
-                      Refer friends and jump ahead in line. Each signup moves you up 3 spots!
-                    </p>
+                    <div className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">Live</div>
                   </div>
-                </div>
-                
-                {/* Floating stat cards */}
-                <div className="absolute -right-4 top-12 w-48 bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl shadow-brand-900/10 p-4 border border-brand-200/30 [animation-delay:600ms] animate-scale-in">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-400 to-green-500 flex items-center justify-center">
-                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                      </svg>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-slate-600">Total Signups</span>
+                      <span className="font-display text-2xl font-black text-slate-900">2,847</span>
                     </div>
-                    <span className="font-sans font-semibold text-sm text-brand-900">+127 today</span>
-                  </div>
-                  <p className="font-sans text-xs text-brand-700/70">New signups</p>
-                </div>
-                
-                <div className="absolute -left-4 bottom-20 w-44 bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl shadow-brand-900/10 p-4 border border-brand-200/30 [animation-delay:750ms] animate-scale-in">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="flex -space-x-2">
-                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-brand-300 to-brand-400 border-2 border-white" />
-                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-brand-400 to-brand-500 border-2 border-white" />
-                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-brand-500 to-brand-600 border-2 border-white" />
+                    <div className="h-3 overflow-hidden rounded-full bg-slate-100">
+                      <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-brand-500 to-brand-600" />
                     </div>
-                    <span className="font-sans font-semibold text-sm text-brand-900">83% viral</span>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="rounded-xl border border-slate-200 bg-slate-50/50 p-4">
+                        <div className="text-xs font-semibold uppercase tracking-widest text-slate-500">Viral Rate</div>
+                        <div className="mt-1 font-display text-2xl font-black text-slate-900">2.4x</div>
+                        <div className="mt-1 flex items-center gap-1 text-xs text-emerald-600">
+                          <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
+                          </svg>
+                          <span className="font-semibold">+18%</span>
+                        </div>
+                      </div>
+                      <div className="rounded-xl border border-slate-200 bg-slate-50/50 p-4">
+                        <div className="text-xs font-semibold uppercase tracking-widest text-slate-500">Top Referrer</div>
+                        <div className="mt-1 font-display text-2xl font-black text-slate-900">127</div>
+                        <div className="mt-1 text-xs text-slate-600">referrals</div>
+                      </div>
+                    </div>
                   </div>
-                  <p className="font-sans text-xs text-brand-700/70">Referral signups</p>
+                  <div className="flex items-center gap-2 rounded-xl border border-brand-200 bg-brand-50/50 p-3">
+                    <svg className="h-5 w-5 flex-shrink-0 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-sm text-brand-900">68% of signups came from referrals</span>
+                  </div>
                 </div>
               </div>
+              <div className="absolute -right-6 -top-6 h-32 w-32 rounded-full bg-gradient-to-br from-rose-300/40 to-orange-300/40 blur-2xl" />
+              <div className="absolute -bottom-6 -left-6 h-32 w-32 rounded-full bg-gradient-to-br from-brand-300/40 to-purple-300/40 blur-2xl" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Social Proof Strip */}
-      <section className="py-12 px-6 border-y border-brand-200/30 bg-white/40 backdrop-blur-sm animate-fade-in [animation-delay:600ms]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="font-display font-black text-5xl text-brand-950 mb-2">12,847</div>
-              <div className="font-sans text-sm text-brand-700/70 tracking-wide uppercase">Active Campaigns</div>
+      <section className="animate-fade-up border-y border-orange-200/50 bg-white/60 py-8 backdrop-blur-sm [animation-delay:150ms]">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div className="text-center">
+              <div className="font-display text-4xl font-black text-slate-900">12,847</div>
+              <div className="mt-1 text-sm font-medium text-slate-600">Active campaigns</div>
             </div>
-            <div>
-              <div className="font-display font-black text-5xl text-brand-950 mb-2">2.4M+</div>
-              <div className="font-sans text-sm text-brand-700/70 tracking-wide uppercase">Total Signups Generated</div>
+            <div className="text-center">
+              <div className="font-display text-4xl font-black text-slate-900">4.2M</div>
+              <div className="mt-1 text-sm font-medium text-slate-600">Waitlist signups collected</div>
             </div>
-            <div>
-              <div className="font-display font-black text-5xl text-brand-950 mb-2">67%</div>
-              <div className="font-sans text-sm text-brand-700/70 tracking-wide uppercase">Avg. Referral Rate</div>
+            <div className="text-center">
+              <div className="font-display text-4xl font-black text-slate-900">2.6x</div>
+              <div className="mt-1 text-sm font-medium text-slate-600">Average viral coefficient</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-32 px-6 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 animate-fade-up">
-            <div className="inline-block px-4 py-2 rounded-full bg-brand-100/60 border border-brand-200/40 font-sans font-semibold text-sm text-brand-800 tracking-widest uppercase mb-6">
-              Everything You Need
-            </div>
-            <h2 className="font-display font-black text-6xl lg:text-7xl leading-none tracking-tighter text-brand-950 mb-6">
-              Launch in minutes.<br />Grow forever.
+      <section id="features" className="relative px-6 py-20 lg:px-8 lg:py-32">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <h2 className="animate-fade-up font-display text-5xl font-black leading-tight tracking-tighter text-slate-900 lg:text-6xl">
+              Everything you need to{" "}
+              <span className="bg-gradient-to-r from-brand-600 to-rose-500 bg-clip-text text-transparent">
+                build hype
+              </span>
             </h2>
-            <p className="text-xl font-sans font-normal leading-relaxed text-brand-800/70 max-w-2xl mx-auto">
-              Every tool you need to build, launch, and scale viral waitlist campaigns that turn casual signups into engaged advocates.
+            <p className="animate-fade-up mt-6 text-xl leading-relaxed text-slate-600 [animation-delay:150ms]">
+              Launch beautiful waitlist pages that turn every subscriber into a growth channel
             </p>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Feature 1 */}
-            <div className="group bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-brand-200/30 shadow-lg hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-500 animate-fade-up [animation-delay:150ms]">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center mb-6 shadow-lg shadow-brand-500/30 group-hover:scale-110 transition-transform duration-500">
-                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="animate-fade-up group rounded-2xl border border-orange-200/50 bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all hover:scale-105 hover:shadow-xl [animation-delay:150ms]">
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-brand-600 shadow-lg shadow-brand-500/30">
+                <svg className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                 </svg>
               </div>
-              <h3 className="font-display font-extrabold text-2xl text-brand-950 mb-3">One-Click Campaigns</h3>
-              <p className="font-sans font-normal leading-relaxed text-brand-800/70">
-                Create a fully-branded waitlist page in under 60 seconds. No coding, no design skills, no headaches.
+              <h3 className="font-display text-2xl font-black text-slate-900">Viral Referral Engine</h3>
+              <p className="mt-3 leading-relaxed text-slate-600">
+                Every subscriber gets a unique referral link. The more friends they invite, the higher they climb on your waitlist. Built-in viral growth.
               </p>
             </div>
 
-            {/* Feature 2 */}
-            <div className="group bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-brand-200/30 shadow-lg hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-500 animate-fade-up [animation-delay:300ms]">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center mb-6 shadow-lg shadow-brand-500/30 group-hover:scale-110 transition-transform duration-500">
-                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            <div className="animate-fade-up group rounded-2xl border border-orange-200/50 bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all hover:scale-105 hover:shadow-xl [animation-delay:300ms]">
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 shadow-lg shadow-emerald-500/30">
+                <svg className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
                 </svg>
               </div>
-              <h3 className="font-display font-extrabold text-2xl text-brand-950 mb-3">Viral Referral Engine</h3>
-              <p className="font-sans font-normal leading-relaxed text-brand-800/70">
-                Every subscriber gets a unique referral link. They move up the waitlist when friends join—67% of users refer at least one person.
+              <h3 className="font-display text-2xl font-black text-slate-900">Real-Time Analytics</h3>
+              <p className="mt-3 leading-relaxed text-slate-600">
+                Watch your waitlist grow in real-time. Track signup sources, referral performance, and viral coefficients. Daily snapshots show growth trends.
               </p>
             </div>
 
-            {/* Feature 3 */}
-            <div className="group bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-brand-200/30 shadow-lg hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-500 animate-fade-up [animation-delay:450ms]">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center mb-6 shadow-lg shadow-brand-500/30 group-hover:scale-110 transition-transform duration-500">
-                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            <div className="animate-fade-up group rounded-2xl border border-orange-200/50 bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all hover:scale-105 hover:shadow-xl [animation-delay:450ms]">
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-500 to-rose-600 shadow-lg shadow-orange-500/30">
+                <svg className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
                 </svg>
               </div>
-              <h3 className="font-display font-extrabold text-2xl text-brand-950 mb-3">Real-Time Analytics</h3>
-              <p className="font-sans font-normal leading-relaxed text-brand-800/70">
-                Watch your waitlist grow with live dashboards showing signup sources, referral performance, and viral coefficient in real-time.
+              <h3 className="font-display text-2xl font-black text-slate-900">One-Click Launch</h3>
+              <p className="mt-3 leading-relaxed text-slate-600">
+                Create a stunning waitlist page in under 60 seconds. Add your brand colors, customize the copy, and share your unique link. No code required.
               </p>
             </div>
 
-            {/* Feature 4 */}
-            <div className="group bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-brand-200/30 shadow-lg hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-500 animate-fade-up [animation-delay:600ms]">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center mb-6 shadow-lg shadow-brand-500/30 group-hover:scale-110 transition-transform duration-500">
-                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            <div className="animate-fade-up group rounded-2xl border border-orange-200/50 bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all hover:scale-105 hover:shadow-xl [animation-delay:600ms]">
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 shadow-lg shadow-purple-500/30">
+                <svg className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0" />
                 </svg>
               </div>
-              <h3 className="font-display font-extrabold text-2xl text-brand-950 mb-3">Subscriber Management</h3>
-              <p className="font-sans font-normal leading-relaxed text-brand-800/70">
-                Manage your entire waitlist from one dashboard. Export CSVs, track positions, send bulk updates, and segment by referral performance.
+              <h3 className="font-display text-2xl font-black text-slate-900">Position Tracking</h3>
+              <p className="mt-3 leading-relaxed text-slate-600">
+                Subscribers see exactly where they stand. Automated position updates via email keep them engaged and motivated to share their referral link.
               </p>
             </div>
 
-            {/* Feature 5 */}
-            <div className="group bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-brand-200/30 shadow-lg hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-500 animate-fade-up [animation-delay:750ms]">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center mb-6 shadow-lg shadow-brand-500/30 group-hover:scale-110 transition-transform duration-500">
-                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+            <div className="animate-fade-up group rounded-2xl border border-orange-200/50 bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all hover:scale-105 hover:shadow-xl [animation-delay:750ms]">
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 shadow-lg shadow-blue-500/30">
+                <svg className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <h3 className="font-display font-extrabold text-2xl text-brand-950 mb-3">Custom Branding</h3>
-              <p className="font-sans font-normal leading-relaxed text-brand-800/70">
-                Upload your logo, set your brand colors, and customize every word on the page. Make it feel 100% yours, not another generic waitlist.
+              <h3 className="font-display text-2xl font-black text-slate-900">Subscriber Management</h3>
+              <p className="mt-3 leading-relaxed text-slate-600">
+                Full dashboard to manage your waitlist. Search, filter, and export subscribers. CSV export for your email tool. Webhook notifications for new signups.
               </p>
             </div>
 
-            {/* Feature 6 */}
-            <div className="group bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-brand-200/30 shadow-lg hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-500 animate-fade-up [animation-delay:900ms]">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center mb-6 shadow-lg shadow-brand-500/30 group-hover:scale-110 transition-transform duration-500">
-                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            <div className="animate-fade-up group rounded-2xl border border-orange-200/50 bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all hover:scale-105 hover:shadow-xl [animation-delay:900ms]">
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 shadow-lg shadow-amber-500/30">
+                <svg className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
                 </svg>
               </div>
-              <h3 className="font-display font-extrabold text-2xl text-brand-950 mb-3">Webhook Notifications</h3>
-              <p className="font-sans font-normal leading-relaxed text-brand-800/70">
-                Connect to your existing tools with webhook support. Get instant notifications in Slack, update your CRM, or trigger custom workflows.
+              <h3 className="font-display text-2xl font-black text-slate-900">Custom Branding</h3>
+              <p className="mt-3 leading-relaxed text-slate-600">
+                Make it yours. Upload your logo, set brand colors, customize button text. Remove LaunchList branding on Pro plans. Perfect match for your brand.
               </p>
             </div>
           </div>
@@ -278,233 +236,210 @@ export default function Page() {
       </section>
 
       {/* How It Works */}
-      <section className="py-32 px-6 bg-gradient-to-br from-white/60 to-brand-50/40 backdrop-blur-sm relative">
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a855f7' fill-opacity='1'%3E%3Ccircle cx='2' cy='2' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }} />
-        
-        <div className="max-w-5xl mx-auto relative">
-          <div className="text-center mb-20 animate-fade-up">
-            <div className="inline-block px-4 py-2 rounded-full bg-brand-100/60 border border-brand-200/40 font-sans font-semibold text-sm text-brand-800 tracking-widest uppercase mb-6">
-              How It Works
-            </div>
-            <h2 className="font-display font-black text-6xl leading-none tracking-tighter text-brand-950 mb-6">
-              Launch to viral growth<br />in 3 simple steps
+      <section className="relative border-y border-orange-200/50 bg-white/60 px-6 py-20 backdrop-blur-sm lg:px-8 lg:py-32">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <h2 className="animate-fade-up font-display text-5xl font-black leading-tight tracking-tighter text-slate-900 lg:text-6xl">
+              Launch to viral growth in{" "}
+              <span className="bg-gradient-to-r from-brand-600 to-rose-500 bg-clip-text text-transparent">
+                three steps
+              </span>
             </h2>
           </div>
-
-          <div className="space-y-12">
-            {/* Step 1 */}
-            <div className="flex gap-8 items-start animate-fade-up [animation-delay:150ms]">
-              <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center shadow-xl shadow-brand-500/30">
-                <span className="font-display font-black text-2xl text-white">1</span>
+          <div className="grid gap-12 lg:grid-cols-3">
+            <div className="animate-fade-up space-y-4 [animation-delay:150ms]">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-brand-600 font-display text-3xl font-black text-white shadow-xl shadow-brand-500/30">
+                1
               </div>
-              <div className="flex-1 pt-2">
-                <h3 className="font-display font-extrabold text-3xl text-brand-950 mb-3">Create your campaign</h3>
-                <p className="font-sans text-lg font-normal leading-relaxed text-brand-800/70">
-                  Name your campaign, write your headline, add your logo. Takes 60 seconds, looks like you spent $10K on a designer.
-                </p>
-              </div>
+              <h3 className="font-display text-2xl font-black text-slate-900">Create Your Campaign</h3>
+              <p className="text-lg leading-relaxed text-slate-600">
+                Add your product name, headline, and brand colors. Customize the signup form and call-to-action. Takes less than a minute.
+              </p>
             </div>
 
-            {/* Step 2 */}
-            <div className="flex gap-8 items-start animate-fade-up [animation-delay:300ms]">
-              <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center shadow-xl shadow-brand-500/30">
-                <span className="font-display font-black text-2xl text-white">2</span>
+            <div className="animate-fade-up space-y-4 [animation-delay:300ms]">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 font-display text-3xl font-black text-white shadow-xl shadow-emerald-500/30">
+                2
               </div>
-              <div className="flex-1 pt-2">
-                <h3 className="font-display font-extrabold text-3xl text-brand-950 mb-3">Share your waitlist</h3>
-                <p className="font-sans text-lg font-normal leading-relaxed text-brand-800/70">
-                  Get a custom URL (launchlist.page/yourname) and an embeddable widget. Post it everywhere—social, email, your website.
-                </p>
-              </div>
+              <h3 className="font-display text-2xl font-black text-slate-900">Share Your Link</h3>
+              <p className="text-lg leading-relaxed text-slate-600">
+                Get your unique waitlist URL. Share it on social media, in newsletters, or embed the widget on your site. Every signup gets a referral link automatically.
+              </p>
             </div>
 
-            {/* Step 3 */}
-            <div className="flex gap-8 items-start animate-fade-up [animation-delay:450ms]">
-              <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center shadow-xl shadow-brand-500/30">
-                <span className="font-display font-black text-2xl text-white">3</span>
+            <div className="animate-fade-up space-y-4 [animation-delay:450ms]">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-500 to-rose-600 font-display text-3xl font-black text-white shadow-xl shadow-orange-500/30">
+                3
               </div>
-              <div className="flex-1 pt-2">
-                <h3 className="font-display font-extrabold text-3xl text-brand-950 mb-3">Watch it grow virally</h3>
-                <p className="font-sans text-lg font-normal leading-relaxed text-brand-800/70">
-                  Every signup gets a unique referral link and moves up when friends join. Your audience does the marketing. You watch the numbers explode.
-                </p>
-              </div>
+              <h3 className="font-display text-2xl font-black text-slate-900">Watch It Go Viral</h3>
+              <p className="text-lg leading-relaxed text-slate-600">
+                Subscribers share their referral links to climb the waitlist. Real-time dashboard shows viral growth. Export your list when you're ready to launch.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="py-32 px-6 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 animate-fade-up">
-            <div className="inline-block px-4 py-2 rounded-full bg-brand-100/60 border border-brand-200/40 font-sans font-semibold text-sm text-brand-800 tracking-widest uppercase mb-6">
-              Pricing
-            </div>
-            <h2 className="font-display font-black text-6xl lg:text-7xl leading-none tracking-tighter text-brand-950 mb-6">
-              Start free. Scale as you grow.
+      {/* Pricing */}
+      <section id="pricing" className="relative px-6 py-20 lg:px-8 lg:py-32">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <h2 className="animate-fade-up font-display text-5xl font-black leading-tight tracking-tighter text-slate-900 lg:text-6xl">
+              Simple pricing that{" "}
+              <span className="bg-gradient-to-r from-brand-600 to-rose-500 bg-clip-text text-transparent">
+                scales with you
+              </span>
             </h2>
-            <p className="text-xl font-sans font-normal leading-relaxed text-brand-800/70 max-w-2xl mx-auto">
-              No credit card required. Upgrade when you're ready to launch more campaigns or collect unlimited signups.
+            <p className="animate-fade-up mt-6 text-xl leading-relaxed text-slate-600 [animation-delay:150ms]">
+              Start free, upgrade when you're ready to scale
             </p>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Free Tier */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-brand-200/30 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-up [animation-delay:150ms]">
-              <div className="mb-8">
-                <h3 className="font-display font-extrabold text-2xl text-brand-950 mb-2">Free</h3>
-                <p className="font-sans text-sm text-brand-700/70 mb-6">Perfect for testing the waters</p>
-                <div className="flex items-baseline gap-2">
-                  <span className="font-display font-black text-5xl text-brand-950">$0</span>
-                  <span className="font-sans text-brand-700/70">/month</span>
+          <div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-3">
+            <div className="animate-fade-up rounded-2xl border border-orange-200/50 bg-white/80 p-8 shadow-lg backdrop-blur-sm [animation-delay:150ms]">
+              <div className="mb-6">
+                <h3 className="font-display text-2xl font-black text-slate-900">Free</h3>
+                <div className="mt-4">
+                  <span className="font-display text-5xl font-black text-slate-900">$0</span>
+                  <span className="text-slate-600">/month</span>
                 </div>
+                <p className="mt-3 text-sm text-slate-600">Perfect for testing the waters</p>
               </div>
-              
-              <ul className="space-y-4 mb-8">
+              <ul className="mb-8 space-y-3">
                 <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="font-sans text-sm text-brand-800/80">1 campaign</span>
+                  <span className="text-slate-700">1 campaign</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="font-sans text-sm text-brand-800/80">Up to 500 subscribers</span>
+                  <span className="text-slate-700">Up to 500 subscribers</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="font-sans text-sm text-brand-800/80">Viral referral engine</span>
+                  <span className="text-slate-700">Viral referral engine</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="font-sans text-sm text-brand-800/80">Basic analytics</span>
+                  <span className="text-slate-700">Basic analytics</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-slate-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-slate-400">LaunchList branding</span>
                 </li>
               </ul>
-              
-              <Link href="/login" className="block w-full py-3 px-6 rounded-full bg-brand-100 hover:bg-brand-200 text-brand-900 font-sans font-semibold text-center transition-all duration-300 border border-brand-200/50">
+              <Link href="/login" className="block w-full rounded-full border-2 border-slate-200 bg-white py-3 text-center font-display font-bold text-slate-700 transition-all hover:border-slate-300 hover:bg-slate-50">
                 Start Free
               </Link>
             </div>
 
-            {/* Pro Tier */}
-            <div className="bg-gradient-to-br from-brand-500 to-brand-600 rounded-3xl p-8 shadow-2xl shadow-brand-500/30 relative overflow-hidden animate-fade-up [animation-delay:300ms] scale-105">
-              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white font-sans font-semibold text-xs tracking-wide">
-                MOST POPULAR
-              </div>
-              
-              <div className="mb-8">
-                <h3 className="font-display font-extrabold text-2xl text-white mb-2">Pro</h3>
-                <p className="font-sans text-sm text-white/80 mb-6">For serious launches</p>
-                <div className="flex items-baseline gap-2">
-                  <span className="font-display font-black text-5xl text-white">$29</span>
-                  <span className="font-sans text-white/80">/month</span>
+            <div className="animate-fade-up relative rounded-2xl border-2 border-brand-500 bg-white p-8 shadow-2xl [animation-delay:300ms]">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                <div className="rounded-full bg-gradient-to-r from-brand-500 to-brand-600 px-4 py-1 text-sm font-bold text-white shadow-lg">
+                  Most Popular
                 </div>
               </div>
-              
-              <ul className="space-y-4 mb-8">
+              <div className="mb-6">
+                <h3 className="font-display text-2xl font-black text-slate-900">Pro</h3>
+                <div className="mt-4">
+                  <span className="font-display text-5xl font-black text-slate-900">$29</span>
+                  <span className="text-slate-600">/month</span>
+                </div>
+                <p className="mt-3 text-sm text-slate-600">For serious product launches</p>
+              </div>
+              <ul className="mb-8 space-y-3">
                 <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="font-sans text-sm text-white">5 campaigns</span>
+                  <span className="text-slate-700">5 campaigns</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="font-sans text-sm text-white">Up to 5,000 subscribers</span>
+                  <span className="text-slate-700">Up to 5,000 subscribers</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="font-sans text-sm text-white">Remove LaunchList branding</span>
+                  <span className="text-slate-700">Remove LaunchList branding</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="font-sans text-sm text-white">Advanced analytics</span>
+                  <span className="text-slate-700">Advanced analytics</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="font-sans text-sm text-white">Webhook integrations</span>
+                  <span className="text-slate-700">CSV export</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="font-sans text-sm text-white">Priority support</span>
+                  <span className="text-slate-700">Webhook notifications</span>
                 </li>
               </ul>
-              
-              <Link href="/login" className="block w-full py-3 px-6 rounded-full bg-white hover:bg-white/90 text-brand-600 font-sans font-semibold text-center transition-all duration-300 shadow-lg">
+              <Link href="/login" className="block w-full rounded-full bg-gradient-to-r from-brand-500 to-brand-600 py-3 text-center font-display font-bold text-white shadow-xl shadow-brand-500/30 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-brand-500/40">
                 Start Pro Trial
               </Link>
             </div>
 
-            {/* Growth Tier */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-brand-200/30 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-up [animation-delay:450ms]">
-              <div className="mb-8">
-                <h3 className="font-display font-extrabold text-2xl text-brand-950 mb-2">Growth</h3>
-                <p className="font-sans text-sm text-brand-700/70 mb-6">For scaling fast</p>
-                <div className="flex items-baseline gap-2">
-                  <span className="font-display font-black text-5xl text-brand-950">$99</span>
-                  <span className="font-sans text-brand-700/70">/month</span>
+            <div className="animate-fade-up rounded-2xl border border-orange-200/50 bg-white/80 p-8 shadow-lg backdrop-blur-sm [animation-delay:450ms]">
+              <div className="mb-6">
+                <h3 className="font-display text-2xl font-black text-slate-900">Growth</h3>
+                <div className="mt-4">
+                  <span className="font-display text-5xl font-black text-slate-900">$99</span>
+                  <span className="text-slate-600">/month</span>
                 </div>
+                <p className="mt-3 text-sm text-slate-600">For scaling companies</p>
               </div>
-              
-              <ul className="space-y-4 mb-8">
+              <ul className="mb-8 space-y-3">
                 <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="font-sans text-sm text-brand-800/80">Unlimited campaigns</span>
+                  <span className="text-slate-700">Unlimited campaigns</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="font-sans text-sm text-brand-800/80">Unlimited subscribers</span>
+                  <span className="text-slate-700">Up to 50,000 subscribers</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="font-sans text-sm text-brand-800/80">White-label everything</span>
+                  <span className="text-slate-700">Everything in Pro</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="font-sans text-sm text-brand-800/80">Custom domain support</span>
+                  <span className="text-slate-700">Priority support</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="font-sans text-sm text-brand-800/80">API access</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-sans text-sm text-brand-800/80">Dedicated support</span>
+                  <span className="text-slate-700">Custom domain support</span>
                 </li>
               </ul>
-              
-              <Link href="/login" className="block w-full py-3 px-6 rounded-full bg-brand-100 hover:bg-brand-200 text-brand-900 font-sans font-semibold text-center transition-all duration-300 border border-brand-200/50">
+              <Link href="/login" className="block w-full rounded-full border-2 border-slate-200 bg-white py-3 text-center font-display font-bold text-slate-700 transition-all hover:border-slate-300 hover:bg-slate-50">
                 Start Growth Trial
               </Link>
             </div>
@@ -513,62 +448,58 @@ export default function Page() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-32 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-500 to-brand-700" />
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23fff' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`
-        }} />
-        
-        <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-up">
-          <h2 className="font-display font-black text-6xl lg:text-7xl leading-none tracking-tighter text-white mb-8">
-            Ready to make your<br />launch go viral?
+      <section className="relative border-t border-orange-200/50 bg-gradient-to-br from-brand-500 to-brand-600 px-6 py-20 lg:px-8 lg:py-32">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -left-1/4 top-1/4 h-[500px] w-[500px] rounded-full bg-white/10 blur-3xl" />
+          <div className="absolute -right-1/4 bottom-1/4 h-[500px] w-[500px] rounded-full bg-white/10 blur-3xl" />
+        </div>
+        <div className="relative mx-auto max-w-4xl text-center">
+          <h2 className="animate-fade-up font-display text-5xl font-black leading-tight tracking-tighter text-white lg:text-6xl">
+            Ready to turn signups into viral growth?
           </h2>
-          <p className="text-xl font-sans font-normal leading-relaxed text-white/90 mb-12 max-w-2xl mx-auto">
-            Join 12,847 creators who've generated 2.4M+ signups with LaunchList. Start your free campaign today—no credit card required.
+          <p className="animate-fade-up mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-white/90 [animation-delay:150ms]">
+            Join 12,847 makers who've launched successful waitlists with LaunchList. Your first 500 subscribers are free.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center [animation-delay:300ms] animate-fade-up">
-            <Link href="/login" className="px-10 py-5 rounded-full bg-white hover:bg-white/95 text-brand-600 font-sans font-bold text-lg shadow-2xl hover:shadow-white/30 hover:scale-105 transition-all duration-300">
-              Create Free Campaign
-            </Link>
-            <Link href="#features" className="px-10 py-5 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/30 text-white font-sans font-semibold text-lg transition-all duration-300">
-              See Live Demo
+          <div className="animate-fade-up mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row [animation-delay:300ms]">
+            <Link href="/login" className="group rounded-full bg-white px-10 py-5 font-display text-lg font-bold text-slate-900 shadow-2xl transition-all hover:scale-105 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.4)]">
+              Create Your Waitlist
+              <svg className="ml-2 inline h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
             </Link>
           </div>
-          
-          <p className="mt-8 text-sm font-sans text-white/70">
-            Free forever · No credit card · Cancel anytime
+          <p className="animate-fade-up mt-6 text-sm text-white/70 [animation-delay:450ms]">
+            No credit card required • Free forever plan • 60-second setup
           </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-brand-200/30 bg-white/40 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+      <footer className="border-t border-orange-200/50 bg-white/60 px-6 py-12 backdrop-blur-sm lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center shadow-lg shadow-brand-500/25">
-                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-brand-600 shadow-lg shadow-brand-500/30">
+                <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                 </svg>
               </div>
-              <span className="font-display font-extrabold text-lg tracking-tight text-brand-900">LaunchList</span>
+              <span className="font-display text-lg font-bold text-slate-900">LaunchList</span>
             </div>
-            
-            <div className="flex items-center gap-8 text-sm">
-              <Link href="#features" className="font-sans text-brand-700/70 hover:text-brand-900 transition-colors">Features</Link>
-              <Link href="#pricing" className="font-sans text-brand-700/70 hover:text-brand-900 transition-colors">Pricing</Link>
-              <Link href="/login" className="font-sans text-brand-700/70 hover:text-brand-900 transition-colors">Login</Link>
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-600">
+              <Link href="#features" className="transition-colors hover:text-slate-900">
+                Features
+              </Link>
+              <Link href="#pricing" className="transition-colors hover:text-slate-900">
+                Pricing
+              </Link>
+              <Link href="/login" className="transition-colors hover:text-slate-900">
+                Sign In
+              </Link>
             </div>
-            
-            <div className="text-sm font-sans text-brand-700/70">
-              © 2024 LaunchList. Built with{' '}
-              <a 
-                href="https://usezero.co" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-brand-600 hover:text-brand-700 font-semibold transition-colors"
-              >
+            <div className="text-sm text-slate-500">
+              © {new Date().getFullYear()} LaunchList. Built with{" "}
+              <a href="https://usezero.co" className="font-medium text-brand-600 hover:text-brand-700">
                 ZERO
               </a>
             </div>
